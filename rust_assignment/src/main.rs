@@ -1,12 +1,13 @@
-fn main() {
-    let word = "UTRGV".to_string();
-    let borrow_word = &word;
-   
-    let borrow_word1 = &word;
-   
-    print_string(&word);
-}
+use std::fs::File;
+use std::io::{Read, BufReader, BufRead};
 
-fn print_string(w: &String) {
-    println!("{}",w);
+fn main() {
+    let mut file = File::open("my_files/example3.txt").unwrap;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents).unwrap();
+    println!("File contents:\n{}", contents);
+
+    
+    //writeln!(file, "Hello, Rust file operations!").unwrap();
+    //writeln!(file, "This is a new line.").unwrap();
 }
