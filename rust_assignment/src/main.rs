@@ -1,13 +1,33 @@
-use std::fs::File;
-use std::io::{Read, BufReader, BufRead};
-
-fn main() {
-    let mut file = File::open("my_files/example3.txt").unwrap;
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).unwrap();
-    println!("File contents:\n{}", contents);
-
+fn intro_to_idea(){
     
-    //writeln!(file, "Hello, Rust file operations!").unwrap();
-    //writeln!(file, "This is a new line.").unwrap();
+    pub struct Rectangle{
+        pub width: f64,
+        pub height: f64,
+     }
+
+    impl Rectangle {
+         fn get_area(&self) -> f64 {
+             self.width * self.height
+         }
+    }
+
+
+    pub struct Circle {
+        pub radius: f64,
+    }
+
+    impl Circle {
+         fn get_area(&self) -> f64 {
+             self.radius * self.radius * 3.14 as f64
+         }
+     }
+
+     let rec = Rectangle {width:5.0,height:8.0};
+     let circle = Circle {radius: 5.0};
+
+     println!("Area of a rectangle {}", rec.get_area());
+     println!("Area of a circle {}", circle.get_area());
+
+    // let shapes: Vec<????> = vec![rec, circle]; 
+    // unfortunately doesn't work
 }
